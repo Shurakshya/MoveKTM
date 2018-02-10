@@ -1,10 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 require('../models/user');
 require('../models/apartment');
 
-var User = mongoose.model('User'); // new model for user created
+const User = mongoose.model('User'); // new model for user created
 
-var sendJsonResponse = function(res, status, content){
+const sendJsonResponse = function(res, status, content){
 	res.status(status);
 	res.json(content);
 };

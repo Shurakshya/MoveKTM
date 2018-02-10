@@ -16,8 +16,9 @@ router.get('/users',userCtrl.allUsers);
 
 /* apartment routes */
 router.get('/apartments' , apartmentCtrl.getAllApartments);
+router.post('/apartments' , apartmentCtrl.createApartment);
 router.get('/apartments/:apartmentId' , apartmentCtrl.getSingleApartment);
-
-
+router.put('/apartments/:apartmentId' , apartmentCtrl.updateApartment);
+router.delete('/apartments/:apartmentId' , apartmentCtrl.deleteApartment);
 
 module.exports = router;
