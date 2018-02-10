@@ -1,4 +1,4 @@
-var mongoose = require('mongoose'),
+const  mongoose = require('mongoose'),
 Schema = mongoose.Schema; 
 const User= require('./user');
 
@@ -7,13 +7,13 @@ const detailsSchema = new mongoose.Schema({
 	facility : String,
 	specialFeatures: String, 
 	constructionYear : Number
-
 });
 
-
 const apartmentSchema = new mongoose.Schema({
-
-	name : String,
+	name : {
+		type : String,
+		required : true
+  },
 	address:{
 		type:  String,
 		required: true
@@ -22,19 +22,21 @@ const apartmentSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	price: Number, 
+  subImages :{
+	  type : Array,
+  },
+	price: Number,
 	apartmentType: {
 		type: String,
 		required:true
 	},
-	hasLivedOn : Boolean,
 	createdOn: {
 		type: Date,
 		default: Date.now
 	},
-	postedBy: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+	owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
     },
 	description : [detailsSchema]
 

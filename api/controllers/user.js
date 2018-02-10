@@ -11,25 +11,26 @@ var sendJsonResponse = function(res, status, content){
 
 /* Get all Users */
 
-module.exports.allUsers = function(req, res){
+module.exports.allUsers = (req, res)=>{
 	User
 	.find()
-	.exec(function(err , user){
+	.exec((err , user)=>{
 		if(err){
-			sendJsonResponse(res, 400, err);
-			return;
+			res.status(500).json({
+        error : 'error message'
+      })
 		}
 		else if(!user){
-			sendJsonResponse(res, 404, {
-				"message" : "user not found"
-			});
-			return;
+      res.status(404).json({
+        error : 'not found'
+      })
 		}
 		else{
-			sendJsonResponse(res, 200, user);
+      res.status(200).json({
+         data : user
+      })
 		}
 	});
-
 };
 
 
@@ -43,17 +44,14 @@ module.exports.singleUser = function(req, res){
 		return;
 	}
 	User
-	.findById(req.params.userid)
-	.exec(function(err,user){
+	.findById(req.params.userid,(err,user)=>{
 		if(err){
 			sendJsonResponse(res, 400 , err);
-			return;
 		}
 		else if(!user){
 			sendJsonResponse(res, 404,{
 				"message": "user not found with that id"
 			});
-			return;
 		}
 		else{
 			sendJsonResponse(res, 200, user);
@@ -61,18 +59,7 @@ module.exports.singleUser = function(req, res){
 	});
 };
 
-
-/* Get User By Name */
-
-
-// module.exports.userByName = function(req, res){
-// 	var userName = req.params.name;
-
-// };
-
-
-/*post user */ 
-
+/*post user */
 module.exports.userCreate = function(req, res) {
 	User
 	.create({

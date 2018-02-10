@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const bodyParser = require("body-parser");
 const routes = require('./api/routes'); // api routes to be built
+require('./api/models/db');
 const app = express();
 
 
