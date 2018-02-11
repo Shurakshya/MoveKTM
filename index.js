@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const cors = require('cors');
 const bodyParser = require("body-parser");
 const routes = require('./api/routes'); // api routes to be built
 require('./api/models/db');
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors());
 
 app.use('/api',routes); //to be built
 

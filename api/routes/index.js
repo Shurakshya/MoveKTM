@@ -11,7 +11,8 @@ router.get('/',(req,res)=>{
 });
 
 /* user routes */
-router.get('/users',userCtrl.allUsers);
+router.get('/users',userCtrl.getAllUsers);
+router.get('/users/:userId', userCtrl.getOneUser);
 
 
 /* apartment routes */
