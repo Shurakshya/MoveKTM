@@ -1,0 +1,24 @@
+#navigation{
+    right:0;
+    margin-top: 0;
+    height: 100px;
+    padding-top: 20px;
+    padding-right: 40px;
+    background-color: rgba(25,184,223,0.9);
+}
+
+/*header*/
+div.navigation ul.nav.navbar-nav.navbar-right li a{
+    color : #fff;
+    font-weight: 900;
+}
+.navbar-right li{
+    border:0;
+    right: 120px;
+    font-family:Georgia;
+}
+
+.navbar-default{
+    border : 0;
+}
+

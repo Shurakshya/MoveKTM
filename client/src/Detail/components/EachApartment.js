@@ -1,11 +1,12 @@
 import React from 'react';
 
-const EachApartment=(props)=>{
-  console.log(props);
+const EachApartment=({ singleApartment })=>{
   return (
-    <div className={"row detail-row"}>
-
-
+    <div className={"well"}>
+      <h3> {singleApartment.name}</h3>
+      <h3> {singleApartment.apartmentType}</h3>
+      <h3> {singleApartment.price}</h3>
+      <h3> {singleApartment.address}</h3>
     </div>
   )
 

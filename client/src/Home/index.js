@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import Navigation from './components/Navigation';
+import Header from './components/Header';
 import ApartmentList from './components/ApartmentList';
 import  {fetchApartments} from './action';
 
@@ -17,7 +17,7 @@ class App extends Component {
     console.log(apartments);
     return (
       <div>
-        <Navigation />
+        <Header />
         <ApartmentList apartmentList={ apartments }/>
       </div>
     );

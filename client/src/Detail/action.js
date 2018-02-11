@@ -7,17 +7,17 @@ export function fetchSingleApartment(id){
   const request = axios.get(`${ROOT_URL}/apartments/${id}`);
   return(dispatch) =>{
     return request
-      .then((response)=>{
-        const {data} = response.data
+      .then((response)=> {
+        const {data} = response.data;
         dispatch({
-          type : FETCH_SINGLE_APARTMENT,
-          payload : data
-        }).catch((err)=>{
+          type: FETCH_SINGLE_APARTMENT,
+          payload: data
+        })
+      }).catch((err)=>{
           dispatch({
             type : FETCH_SINGLE_APARTMENT_ERROR,
-            payload : err.response.data.message
+            payload : err.response
           })
         })
-    })
+    }
   }
-}

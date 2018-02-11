@@ -1,4 +1,4 @@
-#navbar{
+#header{
     height : 100vh;
     position : relative;
     background-image : url("http://designingmedia.com/muse/RealEstate/images/banner_bg1.jpg");
@@ -13,56 +13,32 @@
     transition:background 2s ease-in-out;
     background-repeat: no-repeat;
     background-position: center center;
+    background-attachment: fixed;
 }
-.navbar-right{
-    margin-left:50px;
-}
-.nav-row{
+
+.header-row{
     background-color:transparent!important;
     position:absolute;
-    right:140px;
+    right:95px;
     color:white;
     top:310px;
 }
-.row-text-uppercase{
+
+.header-row p:nth-child(1){
     font-size:400%;
-    font-family:"Arial Black";
+    font-family:Arial Black;
     font-weight:900;
     line-height:1;
 }
-.navbar-default{
-    background-color: transparent !important;
-    border:0;
-    right: 200px;
-    margin-top: 20px;
-    font-family:Georgia;
-    color: red;
+
+.header-row p:nth-child(2){
+    font-family: Arial;
+    font-size:200%;
+    font-weight:400;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color: #efe5e5;
-}
-
-.navbar-default.active{
-    background-color: rgba(108, 181, 218, 1);
-    /* -webkit-box-shadow: 0 1px 5px rgba(108, 181, 218, 1);
-     -moz-box-shadow: 0 1px 5px rgba(108, 181, 218, 1);;
-     box-shadow: 0 1px 5px rgba(108, 181, 218, 1);*/
-}
-#row1{
-
-}
-
-.col-md-4 {
-    position: absolute;
-    bottom: -80px;
-    left: 0;
-    padding: 15px;
-    z-index: 1;
-}
-
-.btn-lg{
-    background-color:#F1780C;
+.header-button{
+    background-color:#ED6F1A;
     width: 350px;
     font-size: 120%;
     font-family: Book Antiqua;
@@ -71,29 +47,5 @@
     border-radius: 0;
 }
 
-div.apartment_list{
-    position: relative;
-    padding : 10px;
-}
-div.apartment_list_popular{
-    background-color: rgba(0,0,0,0.2) !important;
-}
-div.apartment_block_each .apartment_image{
-    height : auto;
-    width : 100%;
-}
-div.apartment_block_each{
-    background-color: #fff !important;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-div.apartment_block{
-    margin: 0 20px;
-    text-align: center;
-    padding : 10px;
-}
-div.apartment_detail{
-    text-align: left;
-}
 
-
+/*ApartmentList starts here*/

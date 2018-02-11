@@ -4,21 +4,25 @@ import EachApartment from './components/EachApartment';
 import {fetchSingleApartment} from "./action";
 
 class Detail extends Component{
-  componentDidMout(){
-    console.log(this.props);
+  componentDidMount(){
+    const id = this.props.match.params.apartmentId;
+    this.props.fetchSingleApartment(id);
   }
+
   render(){
+    const { apartment } = this.props.detail;
+
     return (
       <div>
-        <EachApartment />
+        <EachApartment singleApartment= { apartment } />
       </div>
     )
   }
 }
 
-const mapStateToProps=({apartmentList})=>{
+const mapStateToProps=({detail})=>{
   return{
-    apartmentList
+    detail
   }
 
 }

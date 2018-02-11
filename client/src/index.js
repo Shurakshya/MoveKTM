@@ -9,6 +9,9 @@ import thunk from 'redux-thunk';
 
 import App from './Home/index';
 import Detail from './Detail';
+import Register from './Register';
+import Login from './Login';
+import Navigation from './Common/Navigation';
 
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)(
@@ -20,8 +23,11 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware}>
     <BrowserRouter>
       <div>
+        <Navigation/>
         <Switch>
-          <Route path={"/apartment/:apartmentId"} component={Detail} />
+          <Route path={"/register"} component={Register}/>
+          <Route path={"/login"} component={Login} />
+          <Route path={"/apartments/:apartmentId"} component={Detail} />
           <Route path={"/"} component={App} />
         </Switch>
       </div>

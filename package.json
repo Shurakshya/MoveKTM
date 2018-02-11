@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "scripts-dev": {
     "start": "concurrently \"npm run server\" \"cd client && npm start\"",
-    "server": "nodemon index.js"
+    "server": "node index.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",

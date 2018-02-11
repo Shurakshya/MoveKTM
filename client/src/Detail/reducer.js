@@ -1,16 +1,17 @@
 import { FETCH_SINGLE_APARTMENT , FETCH_SINGLE_APARTMENT_ERROR } from "./constant";
 
 const initialState={
-  apartmentList : [],
-  fetchSingleApartmentError : ' '
+  apartment : {},
+  fetchSingleApartmentError : []
 }
 
 export const detailReducer =(state=initialState, action)=>{
   switch(action.type){
     case FETCH_SINGLE_APARTMENT:
+      console.log("oneapartment" , action.payload)
       return{
         ...state,
-        apartmentList : action.payload
+        apartment : action.payload
       }
     case FETCH_SINGLE_APARTMENT_ERROR:
       return{

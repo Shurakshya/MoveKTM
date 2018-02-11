@@ -13,7 +13,8 @@ router.get('/',(req,res)=>{
 });
 
 /* authentication */
-router.get('/login',authCtrl.login); // applied middleware
+router.post('/login',authCtrl.login); // applied middleware
+router.post('/register', authCtrl.register)
 /* user routes */
 router.get('/users', userCtrl.getAllUsers);
 router.get('/users/:userId', userCtrl.getOneUser);

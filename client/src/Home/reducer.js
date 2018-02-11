@@ -2,7 +2,7 @@ import {FETCH_APARTMENTS, FETCH_APARTMENTS_ERROR} from './constant';
 
 const initialState={
   apartments : [],
-  fetchApartmentsError : ''
+  fetchApartmentsError : []
 };
 
 export const homeReducer = (state=initialState,action)=>{
@@ -15,7 +15,7 @@ export const homeReducer = (state=initialState,action)=>{
     case FETCH_APARTMENTS_ERROR:
       return{
         ...state,
-        fetchApartmentsError : 'something went wrong!'
+        fetchApartmentsError : action.payload
       }
     default :
       return state;
