@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const authCtrl = require('../auth');
+const passport = require('passport');
 
 const userCtrl = require('../../api/controllers/user');
 const apartmentCtrl = require('../../api/controllers/apartment');
@@ -10,9 +12,14 @@ router.get('/',(req,res)=>{
   });
 });
 
+/* authentication */
+router.get('/login',authCtrl.login); // applied middleware
 /* user routes */
-router.get('/users',userCtrl.getAllUsers);
+router.get('/users', userCtrl.getAllUsers);
 router.get('/users/:userId', userCtrl.getOneUser);
+router.post('/users', userCtrl.createUser);
+router.put('/users/:userId', userCtrl.updateUser);
+router.delete('/users/:userId', userCtrl.deleteUser);
 
 
 /* apartment routes */
