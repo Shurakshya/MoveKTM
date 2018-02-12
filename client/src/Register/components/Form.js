@@ -22,6 +22,7 @@ class RegistrForm extends Component {
     };
     /* validate form */
     this.validateForm(data);
+    console.log(this.state.error);
     _.size(this.state.error) <= 0 ? this.props.onSubmit(data) : null;
   };
   validateForm = data => {
