@@ -13,8 +13,8 @@ export function registerUser(values) {
           payload : message
         })
       }).catch((err)=>{
-        const {message} = err.response.data
-        console.log(err.response);
+        const { message } = err.response.data
+        console.log("sparta " , err.response);
         dispatch({
           type: REGISTER_USER_ERROR,
           payload: message

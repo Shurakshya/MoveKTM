@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const authCtrl = require('../auth');
 const passport = require('passport');
 
+const authCtrl = require('../auth');
 const userCtrl = require('../../api/controllers/user');
 const apartmentCtrl = require('../../api/controllers/apartment');
 

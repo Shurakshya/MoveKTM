@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 
-class RegistrForm extends Component {
+class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: {},
     };
   }
-  handleSubmit = e => {
+
+  submitRegisterData = (e) => {
     e.preventDefault();
     const data = {
       firstname: this.firstname.value,
@@ -22,10 +23,11 @@ class RegistrForm extends Component {
     };
     /* validate form */
     this.validateForm(data);
-    console.log(this.state.error);
+    console.log("error message fro",this.state.error);
     _.size(this.state.error) <= 0 ? this.props.onSubmit(data) : null;
   };
-  validateForm = data => {
+
+  validateForm = (data) => {
     const { firstname, lastname, password, email, phone, streetAddress, city, country } = data;
     const error = {};
     if (!firstname) {
@@ -34,14 +36,14 @@ class RegistrForm extends Component {
     if (!lastname) {
       error.lastname = 'lastname is required!';
     }
-    if (!password) {
-      error.password = 'password is required!';
+    if (!password || password.length < 6 ) {
+      error.password = 'password length must be at least 6 characters!';
     }
     if (!email) {
       error.email = 'email is required!';
     }
     if (!phone) {
-      error.phone = 'phone is required!';
+      error.phone = 'Phone number is required!';
     }
     if (!streetAddress) {
       error.streetAddress = 'streetAddress is required!';
@@ -55,13 +57,8 @@ class RegistrForm extends Component {
     this.setState({
       error,
     });
-
-    /* password,
-      streetAddress,
-      streetAddress,
-      city,
-      country,*/
   };
+
   render() {
     const {error} = this.props;
     return (
@@ -71,12 +68,11 @@ class RegistrForm extends Component {
         {
           error
             ? <div className="alert alert-danger">
-              <strong>Error!</strong> {error}
-              </div>
+              <strong>Error!</strong> { error }
+            </div>
             : null
         }
-
-        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+        <form className="form-horizontal" onSubmit={this.submitRegisterData}>
           <div className="form-group">
             <input
               type="firstname"
@@ -186,4 +182,4 @@ class RegistrForm extends Component {
   }
 }
 
-export default RegistrForm;
+export default RegisterForm;

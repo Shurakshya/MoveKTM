@@ -17,7 +17,7 @@ const register = (req, res) => {
   User.findOne({ email }).exec((err, user) => {
     if (err) {
       res.status(400).json({
-        message: 'error',
+        message: 'Error',
       });
     } else if (user) {
       res.status(401).json({
@@ -37,7 +37,7 @@ const register = (req, res) => {
       newUser.save((err, createdUser) => {
         if (err) {
           res.status(400).json({
-            message: 'error',
+            message: 'Something went wrong',
           });
         } else {
           res.status(200).json({

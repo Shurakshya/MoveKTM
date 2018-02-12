@@ -2,7 +2,7 @@ import { REGISTER_USER, REGISTER_USER_ERROR }from './constant';
 
 const initialState={
   registerError : '',
-  registerSuccess:false
+  registerSuccess: false
 }
 
 export const registerReducer=(state=initialState, action)=>{
