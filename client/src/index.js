@@ -12,6 +12,7 @@ import Detail from './Detail';
 import Register from './Register';
 import Login from './Login';
 import Navigation from './Common';
+import AddApartment from "./AddApartment";
 
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)(
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Switch>
           <Route path={"/register"} component={Register}/>
           <Route path={"/login"} component={Login} />
+          <Route path={"/addApartment"} component={AddApartment} />
           <Route path={"/apartments/:apartmentId"} component={Detail} />
           <Route path={"/"} component={App} />
         </Switch>

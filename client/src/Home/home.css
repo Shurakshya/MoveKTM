@@ -46,54 +46,78 @@
     border : 0;
     border-radius: 0;
 }
+
 /*Categories Starts here */
 .categories-list{
-    background-color: #fff;
+    background-color: #f1f1e6;
     position: relative;
     padding: 70px;
     z-index: 2;
-    overflow: auto;
+    width : 100%;
 }
-
 .categories-list-row{
-    background-color: aliceblue;
     position: relative;
-    padding : 10px;
+    padding: 10px 10px 0 10px;
     width: 100%;
     border: 0;
     margin: 0 auto;
 }
+.categories-list-row .col-sm-5{
+    margin: 10px 0 -30px 10px;
+    height: auto;
+}
+.category-name{
+    height : 250px;
+    width : 250px;
+    border: 25px solid rgba(25,184,223,0.9);
+    padding: 15px 0px 10px 10px;
+    margin-left: 20px;
+}
+.col-sm-5 h1 {
+    padding-left: 15px;
+    width: inherit;
+    position: relative;
+    height: 60px;
+    top: -180px;
+    left : 100px;
+    background-color: #f1f1e6;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 900;
+}
+.categories-text-row{
+    margin : 0 auto;
+    height: auto;
 
-.categories-list-each{
-    width:100%;
-    margin: 10px;
-    border-right: 1px solid black;
+}
+.type-categories{
+    margin :10px 15px 30px -20px;
+}
+.type-categories p , .col-sm-6 p{
+    padding-top: 20px;
+    font-size: 20px;
+    margin: 0 auto;
 }
 
-.categories-list-each img{
-    height: 200px;
-    width: 100%;
+.img-wrap{
+    display: inline-block;
+    float: left;
+    margin:10px;
 }
 
 .search-input-row{
-    background-color: cornsilk;
+    background-color:#f1f1e6 ;
     padding : 10px;
     width: 100%;
     border: 0;
-    margin-right: 0;
-    margin-left: 0;
-    margin-top: 30px;
-    margin-bottom: 50px ;
-
+    margin : 10px 0 ;
 }
-
-.form-horizontal .form-group {
-    margin: 0px !important;
+div.search-input-row .form-horizontal , div.search-input-row .form-group{
+    margin : 0px !important;
 }
 .search-form{
     line-height: 3;
 }
-
 .search-form label{
     font-size: 26px;
     margin-right: 20px;
@@ -102,7 +126,6 @@
 }
 .search-form input{
     line-height: 2.5;
-    /*height: inherit;*/
     width:60%;
     font-size: 22px;
     margin-right: 10px;
@@ -110,11 +133,10 @@
 .glyphicon-search{
     margin-right: 15px;
 }
-
 .search-button{
     display: inline-block;
     width:17%;
-    background-color:#ED6F1A;
+    background-color:rgba(25,184,223,0.9);
     color: #fff;
     font-family: "Arial Narrow", Arial, sans-serif;
     font-size: 19px;
@@ -127,35 +149,88 @@
 
 /*ApartmentList starts here*/
 .apartment_list_popular{
-    /*background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/10/nature-sunset-background.jpg");*/
-    position: relative;
+    background-image: url("http://designingmedia.com/muse/RealEstate/images/sales_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    margin : 0 auto;
+    padding: 20px 0 50px 0;
     z-index: 2;
-    margin : 0 auto;
-    background-color: cornsilk;
-    padding: 100px 20px;
-}
-
-.apartment_block{
-    background-color: darkgrey;
-    width : 95%;
+    position :relative;
     text-align: center;
-    margin : 0 auto;
-    padding: 50px;
+    color: #fff;
+    font-weight: 400;
+    font-family: Arial Black;
+}
+.apartment_block{
+    width : 94%;
+    color: #151414;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 .apartment_block_each{
-    width : 95%;
+    width : 100%;
     background-color: #fff;
-    height : 100%;
+    height: 250px;
 }
 
 .col-sm-3{
     background-color: transparent;
-    width: 31%;
-    margin: 10px;
+    width: 25%;
+    margin: 0;
 }
 
 .apartment_image{
     width : 100%;
-    height: 200px;
+    height : inherit;
+}
+.price-show{
+    position: relative;
+    z-index: 4;
+    top : -33px;
+    width:100px;
+}
+.price-show p{
+    font-family: Arial;
+    font-size: 20px;
+    position: absolute;
+    top:2px;
+    left:20px;
+    color : #fff;
+}
+.apartment_detail{
+    text-align: left;
+    position: relative;
+    margin : 0 auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    font-family: Arial;
+}
+
+.apartment_detail h4{
+    color : #151414;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.apartment_detail h6{
+    font-size: 18px;
+    font-weight: 500;
+
+}
+.apartment_detail p{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/*Contact Pages Starts Here*/
+
+.footer-row{
+    margin : 0 auto;
+    padding: 0;
+    position : relative;
+    z-index: 2;
+    height : 400px;
+    background-color: #fff;
 }

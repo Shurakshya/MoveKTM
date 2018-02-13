@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Navigation from './Navigation';
 import jwt_decode from 'jwt-decode';
 import {withRouter} from 'react-router';
+import Navigation from './Navigation';
+import logo from '../images/movektmlogo.png';
 
 class Nav extends React.Component{
   constructor(props){
@@ -40,7 +41,7 @@ class Nav extends React.Component{
     console.log('sparta : ',this.state.userData);
     return(
       <div>
-        <Navigation userData={this.state.userData} logout={this.logout} />
+        <Navigation userData={this.state.userData} logout={this.logout} logo={logo} />
       </div>
     )
   }

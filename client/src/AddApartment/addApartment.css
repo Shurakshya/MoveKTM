@@ -1,0 +1,73 @@
+div.add_apartment{
+    background: url("https://png.pngtree.com/thumb_back/fh260/back_pic/00/03/59/50561f4d3c5ff82.jpg") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    overflow-y: scroll;
+}
+
+div.add_apartment li{
+    color : #000;
+}
+
+div.form_wrapper{
+    position: relative;
+    margin: 70px auto;
+}
+
+div.add_apartment_form{
+    width: 50%;
+    padding: 20px 40px;
+    /*text-align: left;*/
+    background-color : rgba(0,0,0,0.5);
+}
+
+div.add_apartment_form h1{
+    color: rgba(25,184,223,0.9);
+    font-size: 40px;
+}
+
+div.add_apartment_form input{
+    background-color: transparent;
+    color: #fff;
+}
+div.add_apartment_form label{
+    text-align: left;
+    color : #fff;
+    font-family: Arial;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+div.add_apartment_form button{
+    background-color: rgba(25,184,223,0.9);
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    width : 80%;
+    border-radius : 0;
+}
+
+@media screen and (max-width: 650px) {
+    div.add_apartment_form{
+        width: 100%;
+        padding: 20px;
+        background-color : rgba(0,0,0,0.5);
+        margin : 0 auto;
+    }
+    div.add_apartment_form h1{
+        color: #fff;
+        font-size: 36px;
+    }
+    div.add_apartment_form button{
+        background-color: #337ab7;
+        color: #fff;
+        font-size: 18px;
+        width : 60%;
+    }
+}

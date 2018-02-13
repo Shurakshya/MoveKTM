@@ -21,6 +21,9 @@ const Navigation = (props) => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
+          <Link className="navbar-brand topnav" to={'/'}>
+            <img src={props.logo} className="img-rounded navbar-fixed-top" />
+          </Link>
         </div>
         <div
           className="collapse navbar-collapse"
@@ -53,17 +56,20 @@ const Navigation = (props) => {
                         <a>LOGOUT</a>
                       </li>,
                       <li>
-                        <a href="">ADD POST</a>
+                        <Link to="/addApartment">ADD POST</Link>
                       </li>,
                       <li>
                         <a href="">ADD POST</a>
                       </li>
                     ])
-                    : (
+                    : ([
                         <li>
                           <Link to={"/login"}>LOGIN</Link>
+                        </li>,
+                        <li>
+                        <Link to={"/register"}>REGISTER</Link>
                         </li>
-                      )
+                    ])
                 }
 
 

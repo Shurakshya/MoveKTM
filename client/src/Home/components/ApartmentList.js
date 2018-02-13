@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
-const ApartmentList =({apartmentList,history})=>{
+const ApartmentList =({apartmentList,history, price})=>{
   const redirectToPage=(id)=>{
     history.push(`/apartments/${id}`);
   }
@@ -12,16 +12,19 @@ const ApartmentList =({apartmentList,history})=>{
         return(
           <div className={"col-sm-3"} key={each._id} onClick={()=>redirectToPage(each._id)}>
             <div className="apartment_block_each">
-              <div>
-                <img className={"apartment_image"} src={"http://markinternational.info/data/out/592/224126936-home-images.jpg"} />
-              </div>
-              <div className={"apartment_detail"}>
-                <h2>{each.name}</h2>
-                <h4>{each.apartmentType}</h4>
-                <p>{each.price}</p>
+              <img className={"apartment_image"} src={"http://markinternational.info/data/out/592/224126936-home-images.jpg"} />
+              <div className={"price-show"}>
+                <img src={price} />
+                <p>€{each.price}</p>
               </div>
             </div>
-          </div>
+              <div className={"apartment_detail"}>
+                <h4>{each.name}</h4>
+                <h6>{each.address}</h6>
+                <p>{each.apartmentType}</p>
+              </div>
+            </div>
+
         )
       })
 
@@ -31,10 +34,10 @@ const ApartmentList =({apartmentList,history})=>{
   }
   return(
     <div className={"apartment_list_popular"}>
+      <br />
+      <h1>Most popular Apartments</h1>
+      <br />
       <div className={"row apartment_block"}>
-        <br />
-        <h1>Most popular Apartments</h1>
-        <br />
         {renderApartments()}
       </div>
     </div>

@@ -3,17 +3,31 @@ import React, { Component } from 'react';
 class Categories extends Component{
   render(){
     return(
-      <div className={"categories-list"}>
+      <div className={"container-fluid categories-list"}>
         <div className={"row categories-list-row"}>
-          <div className={"col-sm-4"}>
-            <div className={"categories-list-each"}>
-              <img src={"http://www.forallworld.com/data_images/wallpapers/5/15188-home.jpg"} />
+          <div className="col-sm-5">
+            <div className={"category-name"}>
             </div>
+            <h1>Categories </h1>
           </div>
-          <div className={"col-sm-6"}>
-            <div className={"categories-list-each"}>
-              <h2> Categories </h2>
-
+          <div className="col-sm-6">
+            <div className="row categories-text-row">
+              <div className={"col-sm-6 type-categories"}>
+                <img src={this.props.img1} className={"img-wrap"} />
+                <p>Studio apartment</p>
+              </div>
+              <div className={"col-sm-6 type-categories"}>
+                <img src={this.props.img2} className={"img-wrap"} />
+                <p>Friend apartment</p>
+              </div>
+              <div className={"col-sm-6 type-categories"}>
+                <img src={this.props.img3} className={"img-wrap"} />
+                <p>Shared apartment</p>
+              </div>
+              <div className={"col-sm-6 type-categories"}>
+                <img src={this.props.img4} className={"img-wrap"} />
+                <p>Family apartment</p>
+              </div>
             </div>
           </div>
         </div>
