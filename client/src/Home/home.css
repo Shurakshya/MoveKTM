@@ -18,7 +18,7 @@
 
 .header-row{
     background-color:transparent!important;
-    position:absolute;
+    position:fixed;
     right:95px;
     color:white;
     top:310px;
@@ -46,6 +46,116 @@
     border : 0;
     border-radius: 0;
 }
+/*Categories Starts here */
+.categories-list{
+    background-color: #fff;
+    position: relative;
+    padding: 70px;
+    z-index: 2;
+    overflow: auto;
+}
 
+.categories-list-row{
+    background-color: aliceblue;
+    position: relative;
+    padding : 10px;
+    width: 100%;
+    border: 0;
+    margin: 0 auto;
+}
+
+.categories-list-each{
+    width:100%;
+    margin: 10px;
+    border-right: 1px solid black;
+}
+
+.categories-list-each img{
+    height: 200px;
+    width: 100%;
+}
+
+.search-input-row{
+    background-color: cornsilk;
+    padding : 10px;
+    width: 100%;
+    border: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 30px;
+    margin-bottom: 50px ;
+
+}
+
+.form-horizontal .form-group {
+    margin: 0px !important;
+}
+.search-form{
+    line-height: 3;
+}
+
+.search-form label{
+    font-size: 26px;
+    margin-right: 20px;
+    height: 100%;
+    line-height: 0;
+}
+.search-form input{
+    line-height: 2.5;
+    /*height: inherit;*/
+    width:60%;
+    font-size: 22px;
+    margin-right: 10px;
+}
+.glyphicon-search{
+    margin-right: 15px;
+}
+
+.search-button{
+    display: inline-block;
+    width:17%;
+    background-color:#ED6F1A;
+    color: #fff;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: inherit;
+    border : 0;
+    border-radius: 0;
+    padding: 1px;
+}
 
 /*ApartmentList starts here*/
+.apartment_list_popular{
+    /*background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/10/nature-sunset-background.jpg");*/
+    position: relative;
+    z-index: 2;
+    margin : 0 auto;
+    background-color: cornsilk;
+    padding: 100px 20px;
+}
+
+.apartment_block{
+    background-color: darkgrey;
+    width : 95%;
+    text-align: center;
+    margin : 0 auto;
+    padding: 50px;
+}
+
+.apartment_block_each{
+    width : 95%;
+    background-color: #fff;
+    height : 100%;
+}
+
+.col-sm-3{
+    background-color: transparent;
+    width: 31%;
+    margin: 10px;
+}
+
+.apartment_image{
+    width : 100%;
+    height: 200px;
+}

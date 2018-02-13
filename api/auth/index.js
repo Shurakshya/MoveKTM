@@ -51,17 +51,22 @@ const register = (req, res) => {
 
 /* login */
 const login = (req, res) => {
+  console.log('here',req.body);
   passport.authenticate('local', function(err, user, info) {
     console.log('user ',false);
     if (err) {
+      console.log(err);
       res.status(401).json({
         message: 'unauthorized',
       });
-    } else {
+    } else if(user) {
       const token = user.generateJwt();
+      console.log(token);
       res.status(200).json({
         token
       });
+    }else{
+      console.log('info ',info);
     }
   })(req, res);
 };

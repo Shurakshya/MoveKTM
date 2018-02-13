@@ -11,7 +11,7 @@ export function loginUser(values){
         // const {message} = response.data
         dispatch({
           type : LOGIN_USER,
-          payload : response.data
+          payload : response.data.token
         })
       }).catch((err)=>{
         console.log("login action error" , err.response)

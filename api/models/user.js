@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const env = require('../../env');
 const SALT_WORK_FACTOR = 10;
+const jwt = require('jsonwebtoken');
 
 const userSchema = new Schema({
   firstname: {
@@ -58,7 +59,9 @@ userSchema.pre('save', function(next) {
 /* validate password */
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-    if (err) return cb(err);
+    if (err){
+      return cb(err);
+    }
     cb(null, isMatch);
   });
 };

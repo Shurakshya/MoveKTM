@@ -5,8 +5,10 @@ const ApartmentList =({apartmentList,history})=>{
   const redirectToPage=(id)=>{
     history.push(`/apartments/${id}`);
   }
+
   const renderApartments = ()=>{
     return apartmentList.map(each=>{
+      console.log(each);
         return(
           <div className={"col-sm-3"} key={each._id} onClick={()=>redirectToPage(each._id)}>
             <div className="apartment_block_each">
@@ -15,6 +17,7 @@ const ApartmentList =({apartmentList,history})=>{
               </div>
               <div className={"apartment_detail"}>
                 <h2>{each.name}</h2>
+                <h4>{each.apartmentType}</h4>
                 <p>{each.price}</p>
               </div>
             </div>
@@ -28,12 +31,12 @@ const ApartmentList =({apartmentList,history})=>{
   }
   return(
     <div className={"apartment_list_popular"}>
-      {/*<div className={'row apartment_block'}>*/}
-        {/*<br />*/}
-        {/*<h1>Most popular Apartments</h1>*/}
-        {/*<br />*/}
-        {/*{renderApartments()}*/}
-      {/*</div>*/}
+      <div className={"row apartment_block"}>
+        <br />
+        <h1>Most popular Apartments</h1>
+        <br />
+        {renderApartments()}
+      </div>
     </div>
   )
 }

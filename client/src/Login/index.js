@@ -6,8 +6,10 @@ import './loginStyle.css';
 
 class Login extends Component{
   componentWillReceiveProps(newProps){
-    const {loginSuccess, loginError} = this.props.login;
-    if(newProps.register.loginSuccess){
+    const {token} = newProps.login;
+    if(newProps.login.loginSuccess && token){
+      /* save it to localstorage */
+      localStorage.setItem('token',token)
       this.props.history.push('/');
     }
   }

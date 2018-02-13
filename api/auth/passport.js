@@ -4,8 +4,12 @@ const mongoose = require('mongoose');
 
 const User = mongoose.model('User');
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  },
   function(email, password, done) {
+    console.log('sala passport');
     User.findOne({ email:email },  (err, user)=>{
       if (err) {
         return done(err);
@@ -13,10 +17,14 @@ passport.use(new LocalStrategy(
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      if (!user.comparePassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
+      user.comparePassword(password, function(err, isMatch) {
+        if(err){
+          return done(null,false,{message:'Incorrect Password'})
+        }else{
+          console.log('password match : ',isMatch);
+          return done(null, user);
+        }
+      });
     });
   }
 ));

@@ -12,9 +12,29 @@ div.navigation ul.nav.navbar-nav.navbar-right li a{
     color : #fff;
     font-weight: 900;
 }
+ul.dropdown-menu{
+    background-color: #1e1e1ed1;
+    width: 215px;
+    height: 238px;
+    padding: 10px;
+
+}
+ul.dropdown-menu li a {
+    display: block;
+    background-color: rgba(25,184,223,0.9);
+    margin: 5px;
+    line-height:3;
+    color : black;
+    text-align: center;
+}
+ul.dropdown-menu li a:focus, ul.dropdown-menu li a:hover{
+    background-color: #ED6F1A;
+
+}
+
 .navbar-right li{
     border:0;
-    right: 120px;
+    right: 70px;
     font-family:Georgia;
 }
 
@@ -22,3 +42,13 @@ div.navigation ul.nav.navbar-nav.navbar-right li a{
     border : 0;
 }
 
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover{
+    background-color: transparent;
+
+}

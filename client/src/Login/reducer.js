@@ -2,8 +2,8 @@ import {LOGIN_USER, LOGIN_USER_ERROR} from "./constant";
 
 const initialState ={
   loginSuccess : false,
-  loginError : ''
-
+  loginError : '',
+  token : ''
 }
 
 export const loginReducer=(state=initialState, action)=>{
@@ -12,7 +12,8 @@ export const loginReducer=(state=initialState, action)=>{
       return {
         ...state,
         loginSuccess: true,
-        loginError: ''
+        loginError: '',
+        token : action.payload
       };
     case LOGIN_USER_ERROR :
       return{

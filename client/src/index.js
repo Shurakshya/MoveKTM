@@ -11,7 +11,7 @@ import App from './Home/index';
 import Detail from './Detail';
 import Register from './Register';
 import Login from './Login';
-import Navigation from './Common/Navigation';
+import Navigation from './Common';
 
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)(

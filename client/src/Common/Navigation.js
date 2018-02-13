@@ -1,7 +1,12 @@
 import React from 'react';
 import './navigation.css';
+import {Link} from 'react-router-dom';
+import {upperCase} from 'lodash';
 
-const Navigation = () => {
+const Navigation = (props) => {
+  console.log(props.userData);
+  const {firstname,lastname,email} = props.userData;
+  const profile= firstname ? "MY PROFILE" : "LOGIN";
   return (
     <div className={'navigation'}>
       <nav className="navbar navbar-default navbar-fixed-top topnav" id="navigation">
@@ -35,12 +40,33 @@ const Navigation = () => {
             </li>
             <li className="dropdown last_nav_list">
               <a href="" className="dropdown-toggle" data-toggle="dropdown">
-                Login &nbsp;<span className="caret" />
+                {profile}&nbsp;<span className="caret" />
               </a>
               <ul className="dropdown-menu" role="menu">
-                <li>
-                  <a href="">Logout</a>
-                </li>
+                {
+                  firstname
+                    ? ([
+                      <li>
+                        <a>{upperCase(firstname)}</a>
+                      </li>,
+                      <li onClick={()=>props.logout()} >
+                        <a>LOGOUT</a>
+                      </li>,
+                      <li>
+                        <a href="">ADD POST</a>
+                      </li>,
+                      <li>
+                        <a href="">ADD POST</a>
+                      </li>
+                    ])
+                    : (
+                        <li>
+                          <Link to={"/login"}>LOGIN</Link>
+                        </li>
+                      )
+                }
+
+
               </ul>
             </li>
           </ul>

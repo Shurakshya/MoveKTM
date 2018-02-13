@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import  {fetchApartments} from './action';
+import './home.css';
+
 import Header from './components/Header';
 import ApartmentList from './components/ApartmentList';
-import  {fetchApartments} from './action';
-
-import './home.css';
+import Categories from "./components/Categories";
 
 class App extends Component {
   componentDidMount(){
@@ -18,6 +19,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Categories />
         <ApartmentList apartmentList={ apartments }/>
       </div>
     );
@@ -29,4 +31,4 @@ const mapStateToProps =(state) =>{
   }
 }
 
-export default connect(mapStateToProps,{fetchApartments})(App);
+export default connect(mapStateToProps,{ fetchApartments })(App);
