@@ -11,7 +11,7 @@ const ApartmentList =({apartmentList,history, price})=>{
     const maxApartmentList =_.takeRight(apartmentList, 4)
     return maxApartmentList.map(each=>{
       return(
-          <div className={"col-sm-3"} key={each._id} onClick={()=>redirectToPage(each._id)}>
+          <div className={"col-sm-3"} key={each._id} >
             <div className="apartment_block_each">
               <img className={"apartment_image"} src={each.image} />
               <div className={"price-show"}>
@@ -23,7 +23,7 @@ const ApartmentList =({apartmentList,history, price})=>{
                 <h4>{each.name}</h4>
                 <h6>{each.address}</h6>
                 <p>{each.apartmentType}</p>
-                <button type="button" className="btn-lg visit-button">
+                <button type="button" className="btn-lg visit-button" onClick={()=>redirectToPage(each._id)}>
                   View Detail</button>
               </div>
 

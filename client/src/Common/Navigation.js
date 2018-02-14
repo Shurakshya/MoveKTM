@@ -36,10 +36,10 @@ const Navigation = (props) => {
               <Link to={'/apartments'}>PROPERTIES</Link>
             </li>
             <li>
-              <a href="">CONTACT</a>
+              <a>CONTACT</a>
             </li>
             <li>
-              <a href="">PAGES</a>
+              <a>PAGES</a>
             </li>
             <li className="dropdown last_nav_list">
               <a href="" className="dropdown-toggle" data-toggle="dropdown">

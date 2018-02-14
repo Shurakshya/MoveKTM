@@ -179,6 +179,7 @@ div.search-input-row .form-horizontal , div.search-input-row .form-group{
     background-color: transparent;
     width: 25%;
     margin: 0;
+    margin-bottom: 20px;
 }
 
 .apartment_image{

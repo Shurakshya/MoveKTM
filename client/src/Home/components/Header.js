@@ -12,7 +12,7 @@ const Header = (props) => {
         <p>
           With Our Best To Offer.
         </p>
-        <button type="button" className="btn-lg header-button">FIND YOUR HOME</button>
+        <button type="button" className="btn-lg header-button" >FIND YOUR HOME</button>
       </div>
     </div>
   )
