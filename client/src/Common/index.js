@@ -37,8 +37,6 @@ class Nav extends React.Component{
     window.location.assign('/');
   }
   render(){
-    console.log(" prosp patha ye chameli",this.props);
-    console.log('sparta : ',this.state.userData);
     return(
       <div>
         <Navigation userData={this.state.userData} logout={this.logout} logo={logo} />

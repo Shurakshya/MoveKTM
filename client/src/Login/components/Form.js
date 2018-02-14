@@ -15,12 +15,11 @@ class LoginForm extends Component {
       email: this.email.value,
       password: this.password.value,
     };
-
-    this.props.onSubmit(data);
+    // this.props.onSubmit(data);
     /* validate form */
-    // this.validateForm(data);
-    // console.log('error message from login form ', this.state.error);
-    // _.size(this.state.error) <= 0 ? this.props.onSubmit(data) : null;
+    this.validateForm(data);
+    console.log('error message from login form ', this.state.error);
+    _.size(this.state.error) <= 0 ? this.props.onSubmit(data) : null;
   };
 
   validateForm = (data) => {

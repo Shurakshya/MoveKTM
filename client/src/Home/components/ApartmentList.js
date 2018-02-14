@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import _ from 'lodash';
 
 const ApartmentList =({apartmentList,history, price})=>{
   const redirectToPage=(id)=>{
@@ -7,13 +8,12 @@ const ApartmentList =({apartmentList,history, price})=>{
   }
 
   const renderApartments = ()=>{
-    return apartmentList.map(each=>{
-      console.log(each);
-      const staticImage = "http://markinternational.info/data/out/592/224126936-home-images.jpg";
+    const maxApartmentList =_.takeRight(apartmentList, 4)
+    return maxApartmentList.map(each=>{
       return(
           <div className={"col-sm-3"} key={each._id} onClick={()=>redirectToPage(each._id)}>
             <div className="apartment_block_each">
-              <img className={"apartment_image"} src={each.image || staticImage} />
+              <img className={"apartment_image"} src={each.image} />
               <div className={"price-show"}>
                 <img src={price} />
                 <p>€ {each.price}</p>

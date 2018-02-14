@@ -27,7 +27,7 @@ class App extends Component {
         <Header />
         <Categories img1={img1} img2={img2} img3={img3} img4={img4} />
         <ApartmentList apartmentList={ apartments } price={price}/>
-        <Footer/>
+        {/*<Footer/>*/}
       </div>
     );
   }

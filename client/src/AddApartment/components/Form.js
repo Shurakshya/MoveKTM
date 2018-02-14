@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import FormData from 'form-data';
+import {withRouter} from 'react-router-dom';
+import _ from 'lodash';
 
 class AddAparmentForm extends Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class AddAparmentForm extends Component {
       detail: '',
       facility: '',
       specialFeatures: '',
-      constructionYear: ''
+      constructionYear: '',
+      error : {}
     };
   }
   handleChange = e => {
@@ -38,7 +41,8 @@ class AddAparmentForm extends Component {
     for (let key of form.entries()) {
       console.log(key[0] + ', ' + key[1]);
     }
-    this.props.onSubmit(form);
+    this.validateForm(form);
+    _.size(this.state.error) <= 0 ? this.props.onSubmit(form) : null;
     this.setState({
       name: '',
       address: '',
@@ -48,9 +52,20 @@ class AddAparmentForm extends Component {
       facility: '',
       specialFeatures: '',
       constructionYear: '',
-    })
+      error:{}
+    });
     this.image.value = "";
+    this.props.history.push('/');
+
   };
+  validateForm=(data)=>{
+    const {name, address, apartmentType, price, detail , facility, specialFeatures, constructionYear} = this.state;
+    if(!(name || address ||apartmentType || price ||detail || facility|| specialFeatures || constructionYear)){
+      this.setState({
+        error : `Please fill All the required fields!`
+      })
+    }
+  }
 
   render() {
     return (
@@ -68,7 +83,7 @@ class AddAparmentForm extends Component {
           onSubmit={this.sendApartmentData}
         >
           <div className="form-group">
-            <label>Name</label>
+            <label>Name<span className={"asterik"}>*</span></label>
             <input
               type="name"
               onChange={this.handleChange}
@@ -78,10 +93,10 @@ class AddAparmentForm extends Component {
               placeholder="Enter name"
               name="name"
             />
-            {/*<span style={{ color: 'red' }}>{this.state.error.name || ''}</span>*/}
+            <span style={{ color: 'red' }}>{this.state.error.name || ''}</span>
           </div>
           <div className="form-group">
-            <label>Address</label>
+            <label>Address<span className={"asterik"}>*</span></label>
             <input
               type="address"
               onChange={this.handleChange}
@@ -94,7 +109,7 @@ class AddAparmentForm extends Component {
             {/*<span style={{ color: 'red' }}>{this.state.error.address || ''}</span>*/}
           </div>
           <div className="form-group">
-            <label>Apartment Type</label>
+            <label>Apartment Type<span className={"asterik"}>*</span></label>
             <input
               type="apartmentType"
               className="form-control input-lg"
@@ -109,7 +124,7 @@ class AddAparmentForm extends Component {
             {/*</span>*/}
           </div>
           <div className="form-group">
-            <label>Price</label>
+            <label>Price<span className={"asterik"}>*</span></label>
             <input
               type="price"
               className="form-control input-lg"
@@ -122,7 +137,7 @@ class AddAparmentForm extends Component {
             {/*<span style={{ color: 'red' }}>{this.state.error.price || ''}</span>*/}
           </div>
           <div className="form-group">
-            <label>Detail</label>
+            <label>Detail<span className={"asterik"}>*</span></label>
             <input
               type="detail"
               className="form-control input-lg"
@@ -135,7 +150,7 @@ class AddAparmentForm extends Component {
             {/*<span style={{ color: 'red' }}>{this.state.error.detail || ''}</span>*/}
           </div>
           <div className="form-group">
-            <label>Facility</label>
+            <label>Facility<span className={"asterik"}>*</span></label>
             <input
               type="facility"
               className="form-control input-lg"
@@ -150,7 +165,7 @@ class AddAparmentForm extends Component {
             {/*</span>*/}
           </div>
           <div className="form-group">
-            <label>Special Features</label>
+            <label>Special Features<span className={"asterik"}>*</span></label>
             <input
               type="specialFeatures"
               onChange={this.handleChange}
@@ -165,7 +180,7 @@ class AddAparmentForm extends Component {
             {/*</span>*/}
           </div>
           <div className="form-group">
-            <label>Construction Year</label>
+            <label>Construction Year<span className={"asterik"}>*</span></label>
             <input
               type="constructionYear"
               className="form-control input-lg"
@@ -180,7 +195,7 @@ class AddAparmentForm extends Component {
             {/*</span>*/}
           </div>
           <div className="form-group">
-            <label>Image</label>
+            <label>Image<span className={"asterik"}>*</span></label>
             <input
               type="file"
               className="form-control input-lg"
@@ -201,4 +216,4 @@ class AddAparmentForm extends Component {
   }
 }
 
-export default AddAparmentForm;
+export default withRouter(AddAparmentForm);

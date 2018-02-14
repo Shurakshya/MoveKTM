@@ -1,0 +1,76 @@
+.detail-header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    margin: 0 auto;
+    top:0;
+    height:120px;
+    z-index: 3;
+}
+.image-bg-row{
+    background-image: url("http://designingmedia.com/muse/RealEstate/images/banner_bg1.jpg");
+    background-position: center center;
+    width:100%;
+    margin: 0 auto;
+    height: 450px;
+    position : relative;
+}
+.detail-container-fluid{
+    position: relative;
+    width: 100%;
+    padding: 7% 2%;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0);
+}
+.detail-wrapper{
+    width: 95%;
+    margin: 0 auto;
+
+}
+.detail-wrapper h1{
+    font-family: initial;
+    font-weight: 900;
+    margin-bottom: 30px;
+
+}
+.image-row {
+    width : 60%;
+    float : left;
+}
+
+.image-row img{
+    height: 500px;
+    width : 100%;
+    margin-bottom: 25px;
+}
+.detail-text-row{
+    position: relative;
+    width: 38%;
+    margin-left: 62%;
+    height: 500px;
+    padding: 0 10px 10px 10px;
+    background-color: #f5f5f5;
+}
+
+hr{
+    border-bottom: 1px solid #c7bfbf;
+}
+.detail-text-well{
+    border-radius: 0;
+    box-shadow: none;
+    border : 0;
+    max-height: 10px;
+}
+
+.detail-agent-row{
+    position: relative;
+    margin-top: 200px;
+    height: auto;
+    padding: 0 10px 10px 10px;
+}
+
+.desc-well{
+    margin-bottom: 20px;
+}
+
+

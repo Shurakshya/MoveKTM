@@ -8,7 +8,6 @@ const initialState={
 export const detailReducer =(state=initialState, action)=>{
   switch(action.type){
     case FETCH_SINGLE_APARTMENT:
-      console.log("oneapartment" , action.payload)
       return{
         ...state,
         apartment : action.payload

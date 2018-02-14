@@ -51,11 +51,8 @@ const register = (req, res) => {
 
 /* login */
 const login = (req, res) => {
-  console.log('here',req.body);
   passport.authenticate('local', function(err, user, info) {
-    console.log('user ',false);
     if (err) {
-      console.log(err);
       res.status(401).json({
         message: 'unauthorized',
       });
@@ -73,7 +70,6 @@ const login = (req, res) => {
 
 const checkAuth = (req, res, next) => {
   passport.authenticate('local', function(err, user, info) {
-    console.log('user ',false);
     if (err) {
       res.status(401).json({
         message: 'unauthorised',

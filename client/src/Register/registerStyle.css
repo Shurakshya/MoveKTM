@@ -38,6 +38,10 @@ div.register_form button{
     width : 80%;
     border-radius: 0;
 }
+.asterik{
+    color:red;
+    font-size: 20px;
+}
 
 @media screen and (max-width: 650px) {
     div.register_form{

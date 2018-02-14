@@ -9,7 +9,6 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
   function(email, password, done) {
-    console.log('sala passport');
     User.findOne({ email:email },  (err, user)=>{
       if (err) {
         return done(err);
@@ -19,11 +18,13 @@ passport.use(new LocalStrategy({
       }
       user.comparePassword(password, function(err, isMatch) {
         if(err){
-          return done(null,false,{message:'Incorrect Password'})
-        }else{
-          console.log('password match : ',isMatch);
-          return done(null, user);
-        }
+          return done(null,false,{message:'Something went Wrong'})
+        } else if(isMatch === false) {
+          return done(null, false, {message: 'Incorrect Password'})
+        } else {
+            console.log('password match : ',isMatch);
+            return done(null, user);
+          }
       });
     });
   }

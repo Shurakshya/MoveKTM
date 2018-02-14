@@ -16,6 +16,7 @@ export const loginReducer=(state=initialState, action)=>{
         token : action.payload
       };
     case LOGIN_USER_ERROR :
+      // console.log("login reducer error ", action.payload)
       return{
         ...state,
         loginError : action.payload,

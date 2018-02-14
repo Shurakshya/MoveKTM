@@ -254,7 +254,7 @@ div.search-input-row .form-horizontal , div.search-input-row .form-group{
         display:none;
     }
     .categories-list-row .col-sm-6{
-        width: 98%;
+        width: 100%;
 
     }
 }
@@ -263,16 +263,29 @@ div.search-input-row .form-horizontal , div.search-input-row .form-group{
     .categories-list-row .col-sm-5 {
         display: none;
     }
+    .categories-list-row .col-sm-6{
+        width: 100%;
+
+    }
+
 }
 
 @media only screen and (min-width : 992px) {
     .categories-list-row .col-sm-5 {
         display: block;
     }
+    .categories-list-row .col-sm-6{
+        width: 50%;
+    }
+
 }
 
 @media only screen and (min-width : 1264px) {
     .categories-list-row .col-sm-5 {
         display: block;
+    }
+    .categories-list-row .col-sm-6{
+        width: 50%;
+
     }
 }

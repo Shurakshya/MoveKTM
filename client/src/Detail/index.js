@@ -1,7 +1,10 @@
 import React , { Component } from 'react';
 import {connect} from 'react-redux';
-import EachApartment from './components/EachApartment';
 import {fetchSingleApartment} from "./action";
+
+import './detail.css'
+import DetailHeader from "./components/DetailHeader";
+import EachApartment from './components/EachApartment';
 
 class Detail extends Component{
   componentDidMount(){
@@ -10,10 +13,11 @@ class Detail extends Component{
   }
 
   render(){
+    console.log( "detail props enenen",this.props.detail);
     const { apartment } = this.props.detail;
-
     return (
       <div>
+        <DetailHeader/>
         <EachApartment singleApartment= { apartment } />
       </div>
     )

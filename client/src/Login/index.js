@@ -16,7 +16,6 @@ class Login extends Component{
 
   submitLogin=(data)=>{
     /* action dispatch */
-    console.log("action dispatcing ", data);
     this.props.loginUser(data);
   }
   render(){
