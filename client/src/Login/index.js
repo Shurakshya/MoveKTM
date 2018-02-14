@@ -23,7 +23,7 @@ class Login extends Component{
     const {loginError} = this.props.login;
     return(
       <div className={"login text-center"}>
-        <div className={"form_wrapper"}>
+        <div className={"form_wrapper_login"}>
         <br />
         <Form  onSubmit={this.submitLogin} error={loginError}/>
         </div>

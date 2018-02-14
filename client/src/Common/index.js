@@ -32,9 +32,9 @@ class Nav extends React.Component{
   logout=()=>{
     localStorage.clear();
     this.setState({
-      userData: {}
+      userData :{}
     })
-    this.props.history.push('/');
+    window.location.assign('/');
   }
   render(){
     console.log(" prosp patha ye chameli",this.props);

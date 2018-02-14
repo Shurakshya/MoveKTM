@@ -203,7 +203,7 @@ div.search-input-row .form-horizontal , div.search-input-row .form-group{
     text-align: left;
     position: relative;
     margin : 0 auto;
-    padding: 10px 20px;
+    padding: 10px 20px 30px 20px;
     background-color: #fff;
     font-family: Arial;
 }
@@ -223,6 +223,20 @@ div.search-input-row .form-horizontal , div.search-input-row .form-group{
     font-size: 16px;
     font-weight: 400;
 }
+.visit-button{
+    border-radius: 0;
+    padding: 5px 25px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.3333333;
+    background-color: #fff;
+    color: rgba(0,0,0,0.5);
+    transition: all 0.5s linear;
+}
+.visit-button:hover{
+    background-color:#ED6F1A;
+    color:#fff;
+}
 
 /*Contact Pages Starts Here*/
 
@@ -233,4 +247,32 @@ div.search-input-row .form-horizontal , div.search-input-row .form-group{
     z-index: 2;
     height : 400px;
     background-color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .categories-list-row .col-sm-5 {
+        display:none;
+    }
+    .categories-list-row .col-sm-6{
+        width: 98%;
+
+    }
+}
+
+@media only screen and  (min-width : 600px) {
+    .categories-list-row .col-sm-5 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+    .categories-list-row .col-sm-5 {
+        display: block;
+    }
+}
+
+@media only screen and (min-width : 1264px) {
+    .categories-list-row .col-sm-5 {
+        display: block;
+    }
 }

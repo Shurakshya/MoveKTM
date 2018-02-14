@@ -30,10 +30,10 @@ const Navigation = (props) => {
           id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="">HOME</a>
+              <Link to={'/'}>HOME</Link>
             </li>
             <li>
-              <a href="">TEAM</a>
+              <Link to={'/apartments'}>PROPERTIES</Link>
             </li>
             <li>
               <a href="">CONTACT</a>
@@ -49,24 +49,24 @@ const Navigation = (props) => {
                 {
                   firstname
                     ? ([
-                      <li>
+                      <li key={'1'}>
                         <a>{upperCase(firstname)}</a>
                       </li>,
-                      <li onClick={()=>props.logout()} >
-                        <a>LOGOUT</a>
-                      </li>,
-                      <li>
+                      <li key={'3'}>
                         <Link to="/addApartment">ADD POST</Link>
                       </li>,
-                      <li>
-                        <a href="">ADD POST</a>
+                      <li onClick={()=>props.logout()}  key={'2'}>
+                        <a>LOGOUT</a>
+                      </li>,
+                      <li key={'4'}>
+                        <a href="">DEACTIVATE</a>
                       </li>
                     ])
                     : ([
-                        <li>
+                        <li key={'5'}>
                           <Link to={"/login"}>LOGIN</Link>
                         </li>,
-                        <li>
+                        <li key={'6'}>
                         <Link to={"/register"}>REGISTER</Link>
                         </li>
                     ])

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart();
 
 const authCtrl = require('../auth');
 const userCtrl = require('../../api/controllers/user');
@@ -25,7 +27,7 @@ router.delete('/users/:userId', userCtrl.deleteUser);
 
 /* apartment routes */
 router.get('/apartments' , apartmentCtrl.getAllApartments);
-router.post('/apartments' , apartmentCtrl.createApartment);
+router.post('/apartments' ,multipartMiddleware, apartmentCtrl.createApartment);
 router.get('/apartments/:apartmentId' , apartmentCtrl.getSingleApartment);
 router.put('/apartments/:apartmentId' , apartmentCtrl.updateApartment);
 router.delete('/apartments/:apartmentId' , apartmentCtrl.deleteApartment);
