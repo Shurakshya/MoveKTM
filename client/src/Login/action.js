@@ -14,11 +14,11 @@ export function loginUser(values){
           payload : response.data.token
         })
       }).catch((err)=>{
-        // console.log("login action error" , err.response)
+        console.log("login action error" , err.response.data.message)
         // const { message } = err.response.data;
         dispatch({
           type: LOGIN_USER_ERROR,
-          payload : err.response
+          payload : err.response.data.message
         })
       })
   }

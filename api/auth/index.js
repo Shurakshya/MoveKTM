@@ -64,6 +64,9 @@ const login = (req, res) => {
       });
     }else{
       console.log('info ',info);
+      res.status(400).json({
+        'message':info.message|| 'invalid username or password'
+      });
     }
   })(req, res);
 };
