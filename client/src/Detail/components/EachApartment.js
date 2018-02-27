@@ -19,6 +19,16 @@ const EachApartment=({ singleApartment })=>{
             <h3>Details : {singleApartment.description[0].detail}</h3>
             <h4>Special Features : {singleApartment.description[0].specialFeatures}</h4>
           </div>
+          {singleApartment.comments.length > 0
+            ?
+            (
+              <div className={"well desc-well"}>
+                <h3>Author : {singleApartment.comments[0].author}</h3>
+                <h4> CommentText : {singleApartment.comments[0].commentText}</h4>
+              </div>
+            ) : null
+          }
+
           {/*<div className={"well desc-well"}>*/}
             {/*<h3>Here contains Details</h3>*/}
           {/*</div>*/}

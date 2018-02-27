@@ -7,6 +7,7 @@ const multipartMiddleware = multipart();
 const authCtrl = require('../auth');
 const userCtrl = require('../../api/controllers/user');
 const apartmentCtrl = require('../../api/controllers/apartment');
+const commentCtrl = require('../../api/controllers/comment');
 
 router.get('/',(req,res)=>{
   res.status(200).json({
@@ -31,5 +32,10 @@ router.post('/apartments' ,multipartMiddleware, apartmentCtrl.createApartment);
 router.get('/apartments/:apartmentId' , apartmentCtrl.getSingleApartment);
 router.put('/apartments/:apartmentId' , apartmentCtrl.updateApartment);
 router.delete('/apartments/:apartmentId' , apartmentCtrl.deleteApartment);
+
+/*apartment sub-routes i.e. comments routes */
+router.get('/apartments/:apartmentId/comments/:commentId' , commentCtrl.getOneComment);
+router.post('/apartments/:apartmentId/comments' , commentCtrl.createComment);
+
 
 module.exports = router;

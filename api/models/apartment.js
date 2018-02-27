@@ -9,6 +9,18 @@ const detailsSchema = new mongoose.Schema({
 	constructionYear : Number
 });
 
+const commentSchemea = new mongoose.Schema({
+  author : {
+    type : String,
+    required : true
+  },
+  commentText : String,
+  commentedOn : {
+    type : Date,
+    "default" : Date.now()
+  }
+})
+
 const apartmentSchema = new mongoose.Schema({
 	name : {
 		type : String,
@@ -38,7 +50,8 @@ const apartmentSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
     },
-	description : [detailsSchema]
+	description : [detailsSchema],
+  comments : [commentSchemea]
 
 });
 
