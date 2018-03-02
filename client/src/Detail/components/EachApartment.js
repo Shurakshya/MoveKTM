@@ -1,66 +1,51 @@
 import React from 'react';
+import Comment from './Comment';
+import AddComment from "./AddComment";
+
 
 const EachApartment=({ singleApartment })=>{
+  // const noOfResponse = singleApartment.comments.length >0 ? singleApartment.comments.length : 0 ;
   if(!singleApartment.name){
     return <p>...loading</p>
   }
   return (
-    <div className={"container-fluid detail-container-fluid"}>
+      <div className={"container-fluid detail-container-fluid"}>
       <div className={"detail-wrapper"}>
+        {/*<div className={"wrapper"}>*/}
         <div className={"row image-row"}>
-          <h1> PROPERTY IMAGE </h1>
           <img src={singleApartment.image} />
-          <div className={"well desc-well"}>
-            <h3>Construction Year : {singleApartment.description[0].constructionYear}</h3>
-            <h4>Faciltiy : {singleApartment.description[0].facility}</h4>
-
-          </div>
-          <div className={"well desc-well"}>
-            <h3>Details : {singleApartment.description[0].detail}</h3>
-            <h4>Special Features : {singleApartment.description[0].specialFeatures}</h4>
-          </div>
-          {singleApartment.comments.length > 0
-            ?
-            (
-              <div className={"well desc-well"}>
-                <h3>Author : {singleApartment.comments[0].author}</h3>
-                <h4> CommentText : {singleApartment.comments[0].commentText}</h4>
-              </div>
-            ) : null
-          }
-
-          {/*<div className={"well desc-well"}>*/}
-            {/*<h3>Here contains Details</h3>*/}
-          {/*</div>*/}
-          {/*<div className={"well desc-well"}>*/}
-            {/*<h3>Here contains Details</h3>*/}
-          {/*</div>*/}
         </div>
         <div className={"row detail-text-row"}>
-          <h1> PROPERTY DETAIL</h1>
           <hr/>
-          <div className={"well detail-text-well"}>
-            <h3> Apartment Name : {singleApartment.name}</h3>
+          <ul className={"text-detail"}>
+            <li><span className={"glyphicon glyphicon-home"}>
+            </span>{singleApartment.name}</li>
+            <li><span className={"glyphicon glyphicon-tag"}>
+            </span>{singleApartment.apartmentType}</li>
+            <li><span className={"glyphicon glyphicon-euro"}>
+            </span>{singleApartment.price}</li>
+          </ul>
+          <hr/>
+          <div className={"detail-text-well"}>
+            <h4><span className={"heading"}> Apartment Address :</span> {singleApartment.name}</h4>
+            <h4><span className={"heading"}> Details :</span> {singleApartment.description[0].detail}</h4>
+            <h4><span className={"heading"}> Facility :</span> {singleApartment.description[0].facility}</h4>
+            <h4><span className={"heading"}> Special Features :</span> {singleApartment.description[0].specialFeatures}</h4>
+            <h4><span className={"heading"}> Construction Year :</span> {singleApartment.description[0].constructionYear}</h4>
+            <hr/>
           </div>
-          <div className={"well detail-text-well"}>
-            <h3> Address : {singleApartment.address}</h3>
-          </div>
-          <div className={"well detail-text-well"}>
-            <h3> Price : € {singleApartment.price}</h3>
-          </div>
-          <div className={"well detail-text-well"}>
-            <h3>Apartment Type : {singleApartment.apartmentType}</h3>
-          </div>
-          {/*<div className={"row detail-agent-row"}>*/}
-            {/*<h1>Our Agents </h1>*/}
-            {/*<div className={"well detail-agent-well"}>*/}
-              {/*<h3> {singleApartment.name}</h3>*/}
-            {/*</div>*/}
-            {/*<div className={"well detail-agent-well"}>*/}
-              {/*<h3> {singleApartment.address}</h3>*/}
-            {/*</div>*/}
-          {/*</div>*/}
         </div>
+        {/*</div>*/}
+        <div className="heading-row">
+          <h1>Reviews</h1>
+        </div>
+        {singleApartment.comments.length >0
+            ?
+            (
+             <Comment apartmentProps={singleApartment}/>
+            ) : <div> No Reviews.</div>
+          }
+          <AddComment/>
       </div>
     </div>
   )

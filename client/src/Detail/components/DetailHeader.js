@@ -7,7 +7,10 @@ const DetailHeader =(props)=>{
       </div>
       <div className={"row image-bg-row"}>
       </div>
-
+      <ul className="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a className="active">Detail</a></li>
+      </ul>
     </div>
   )
 
