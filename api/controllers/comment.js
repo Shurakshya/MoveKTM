@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Apartment = mongoose.model('Apartment');
 
 
-const getOneComment = (req, res)=>{
-  const { apartmentId , commentId } = req.params;
-  if (!req.params && !apartmentId && commentId) {
+const getOneComment = (req, res) => {
+  const {apartmentId, commentId} = req.params;
+  if (!apartmentId && !commentId) {
     res.status(404).json({
       message: 'Id not found',
     });
@@ -13,85 +13,86 @@ const getOneComment = (req, res)=>{
   Apartment
     .findById(apartmentId)
     .exec((err, apartment) => {
-      if(err){
+      if (err) {
         res.status(400).json({
-          message : "Bad Request"
+          message: "Bad Request"
         })
-      }else if(!apartment){
+      } else if (!apartment) {
         res.status(404).json({
-          message : "Apartment not found with that id"
+          message: "Apartment not found with that id"
         })
-      }
-      if(apartment.comments && apartment.comments.length > 0){
-        const comment = apartment.comments.id(commentId);
-        if(!comment){
-          res.status(404).json({
-            message : "Comment id not found"
-          })
-      } else{
-          const response= {
-            apartment : {
-              name : apartment.name,
-              address : apartment.address,
-              id : apartmentId
-            },
-            comment : comment
+      }else {
+        if (apartment.comments && apartment.comments.length > 0) {
+          const comment = apartment.comments.id(commentId);
+          if (!comment) {
+            res.status(404).json({
+              message: "Comment id not found"
+            })
+          } else {
+            const response = {
+              apartment: {
+                name: apartment.name,
+                address: apartment.address,
+                id: apartmentId
+              },
+              comment: comment
+            }
+            res.status(200).json({
+              response
+            })
           }
-          res.status(200).json({
-            response
+        } else {
+          res.status(404).json({
+            message: "No Comments Found"
           })
         }
-      } else{
-        res.status(404).json({
-          message : "No Comments Found"
-        })
       }
     })
 }
 
 const createComment = (req, res) => {
   const {apartmentId} = req.params;
-  if(!apartmentId){
+  if (!apartmentId) {
     res.status(404).json({
-      message : "Id not found"
+      message: "Id not found"
     });
   } else {
     Apartment
       .findById(apartmentId)
       .select('comments')
-      .exec((err , apartment) =>{
-        if(err){
+      .exec((err, apartment) => {
+        if (err) {
           res.status(400).json({
-            message : err
+            message: err.name
           })
         } else {
-          doAddComment(req,res, apartment);
+          doAddComment(req, res, apartment);
         }
       })
   }
 }
 
-const doAddComment = function (req, res, apartment){
-  const {author , commentText} = req.body;
-  if(!apartment){
+const doAddComment =  (req, res, apartment)=>{
+  const {author, commentText} = req.body;
+  if (!apartment) {
     res.status(404).json({
-      message : "Apartment not found"
+      message: "Apartment not found"
     })
   } else {
     apartment.comments.push({
-      author ,
+      author,
       commentText
     });
-    apartment.save(( err,apartment ) => {
+    apartment.save((err, apartment) => {
       let thisComment;
-      if(err){
+      if (err) {
         res.status(400).json({
-          message : err
+          message: err.name
         })
-      }else {
-        thisComment = apartment.comments[ apartment.comments.length - 1 ];
+      } else {
+        thisComment = apartment.comments[apartment.comments.length - 1];
         res.status(201).json({
-          data : thisComment
+          data: thisComment
         })
       }
     })

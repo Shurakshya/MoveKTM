@@ -1,4 +1,4 @@
-import {LOGIN_USER, LOGIN_USER_ERROR} from "./constant";
+import {LOGIN_USER, LOGIN_USER_ERROR,REQUEST_LOGIN_RESET} from "./constant";
 
 const initialState ={
   loginSuccess : false,
@@ -8,6 +8,12 @@ const initialState ={
 
 export const loginReducer=(state=initialState, action)=>{
   switch(action.type){
+    case REQUEST_LOGIN_RESET:
+      return {
+        ...state,
+        loginSuccess : false,
+        loginError : ''
+      }
     case LOGIN_USER :
       return {
         ...state,

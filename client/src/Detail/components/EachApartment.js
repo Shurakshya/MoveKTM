@@ -1,52 +1,49 @@
 import React from 'react';
 import Comment from './Comment';
-import AddComment from "./AddComment";
 
-
-const EachApartment=({ singleApartment })=>{
+const EachApartment = ({singleApartment}) => {
   // const noOfResponse = singleApartment.comments.length >0 ? singleApartment.comments.length : 0 ;
-  if(!singleApartment.name){
+  if (!singleApartment.name) {
     return <p>...loading</p>
   }
   return (
-      <div className={"container-fluid detail-container-fluid"}>
-      <div className={"detail-wrapper"}>
-        {/*<div className={"wrapper"}>*/}
-        <div className={"row image-row"}>
-          <img src={singleApartment.image} />
-        </div>
-        <div className={"row detail-text-row"}>
-          <hr/>
-          <ul className={"text-detail"}>
-            <li><span className={"glyphicon glyphicon-home"}>
-            </span>{singleApartment.name}</li>
-            <li><span className={"glyphicon glyphicon-tag"}>
-            </span>{singleApartment.apartmentType}</li>
-            <li><span className={"glyphicon glyphicon-euro"}>
-            </span>{singleApartment.price}</li>
-          </ul>
-          <hr/>
-          <div className={"detail-text-well"}>
-            <h4><span className={"heading"}> Apartment Address :</span> {singleApartment.name}</h4>
-            <h4><span className={"heading"}> Details :</span> {singleApartment.description[0].detail}</h4>
-            <h4><span className={"heading"}> Facility :</span> {singleApartment.description[0].facility}</h4>
-            <h4><span className={"heading"}> Special Features :</span> {singleApartment.description[0].specialFeatures}</h4>
-            <h4><span className={"heading"}> Construction Year :</span> {singleApartment.description[0].constructionYear}</h4>
-            <hr/>
-          </div>
-        </div>
-        {/*</div>*/}
-        <div className="heading-row">
-          <h1>Reviews</h1>
-        </div>
-        {singleApartment.comments.length >0
-            ?
-            (
-             <Comment apartmentProps={singleApartment}/>
-            ) : <div> No Reviews.</div>
-          }
-          <AddComment/>
+    <div>
+      {/*<div className={"wrapper"}>*/}
+      <div className={"row image-row"}>
+        <img src={singleApartment.image}/>
       </div>
+      <div className={"row detail-text-row"}>
+        <hr/>
+        <ul className={"text-detail"}>
+          <li><span className={"glyphicon glyphicon-home"}>
+            </span>{singleApartment.name}</li>
+          <li><span className={"glyphicon glyphicon-tag"}>
+            </span>{singleApartment.apartmentType}</li>
+          <li><span className={"glyphicon glyphicon-euro"}>
+            </span>{singleApartment.price}</li>
+        </ul>
+        <hr/>
+        <div className={"detail-text-well"}>
+          <h4><span className={"heading"}> Apartment Address :</span> {singleApartment.name}</h4>
+          <h4><span className={"heading"}> Details :</span> {singleApartment.description[0].detail}</h4>
+          <h4><span className={"heading"}> Facility :</span> {singleApartment.description[0].facility}</h4>
+          <h4><span className={"heading"}> Special Features :</span> {singleApartment.description[0].specialFeatures}
+          </h4>
+          <h4><span className={"heading"}> Construction Year :</span> {singleApartment.description[0].constructionYear}
+          </h4>
+          <hr/>
+        </div>
+      </div>
+      {/*</div>*/}
+      <div className="heading-row">
+        <h1>Reviews</h1>
+      </div>
+      {singleApartment.comments.length > 0
+        ?
+        (
+          <Comment apartmentProps={singleApartment}/>
+        ) : <div> No Reviews.</div>
+      }
     </div>
   )
 

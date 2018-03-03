@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from './action';
+import { loginUser,resetLogin } from './action';
 import Form from './components/Form';
 import './loginStyle.css';
 
@@ -17,6 +17,9 @@ class Login extends Component{
   submitLogin=(data)=>{
     /* action dispatch */
     this.props.loginUser(data);
+  }
+  componentWillUnmount(){
+    this.props.resetLogin();
   }
   render(){
     const {loginError} = this.props.login;
@@ -37,4 +40,4 @@ const mapStateToProps=({login})=>{
   }
 }
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { loginUser,resetLogin })(Login);

@@ -1,2 +1,4 @@
-export const LOGIN_USER = "LOGIN_USER"
-export const LOGIN_USER_ERROR = "LOGIN_USER_ERROR"
+export const LOGIN_USER = "LOGIN_USER";
+export const LOGIN_USER_ERROR = "LOGIN_USER_ERROR";
+export const REQUEST_LOGIN_RESET = "REQUEST_LOGIN_RESET";
+

@@ -27,6 +27,8 @@ class Nav extends React.Component{
       this.setState({
         userData
       })
+      localStorage.setItem('email',userData.email);
+      localStorage.setItem('name',userData.firstname);
     }
   }
   logout=()=>{

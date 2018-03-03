@@ -32,7 +32,7 @@ class LoginForm extends Component {
       error.email = 'email is required!';
     }
     this.setState({
-      error,
+      error
     });
   };
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOGIN_USER, LOGIN_USER_ERROR} from "./constant";
+import {LOGIN_USER, LOGIN_USER_ERROR,REQUEST_LOGIN_RESET} from "./constant";
 
 const ROOT_URL = 'http://localhost:3001/api';
 
@@ -7,8 +7,6 @@ export function loginUser(values){
   return (dispatch)=>{
     return axios.post(`${ROOT_URL}/login` , values)
       .then((response)=>{
-        // console.log("login action scces",response.data)
-        // const {message} = response.data
         dispatch({
           type : LOGIN_USER,
           payload : response.data.token
@@ -23,3 +21,9 @@ export function loginUser(values){
       })
   }
 }
+
+export const resetLogin=()=>{
+  return {
+    type : REQUEST_LOGIN_RESET
+  }
+};

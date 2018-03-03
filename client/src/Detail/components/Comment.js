@@ -1,13 +1,7 @@
-import React , { Component } from 'react';
+import React  from 'react';
 
-class Comment extends Component{
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-   const { apartmentProps } =  this.props;
-    return(
+const Comment =({ apartmentProps})=>{
+  return (
       <div className="well comment-well">
         { apartmentProps.comments.map(each=>{
           return(
@@ -21,7 +15,7 @@ class Comment extends Component{
                 <div className="panel panel-default">
                   <div className="panel-heading">
                     <strong>{each.author}</strong>
-                    <span className="text-muted pull-right"> {each.commentedOn}</span>
+                    <span className="text-muted pull-right">{each.commentedOn}</span>
                   </div>
                   <div className="panel-body">
                     {each.commentText}
@@ -32,10 +26,9 @@ class Comment extends Component{
           )
         })
         }
-
       </div>
     )
-  }
-}
+};
+
 export default Comment;
 
