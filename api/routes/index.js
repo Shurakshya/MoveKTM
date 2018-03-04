@@ -28,8 +28,9 @@ router.delete('/users/:userId', userCtrl.deleteUser);
 
 /* apartment routes */
 router.get('/apartments' , apartmentCtrl.getAllApartments);
-router.post('/apartments' ,multipartMiddleware, apartmentCtrl.createApartment);
 router.get('/apartments/:apartmentId' , apartmentCtrl.getSingleApartment);
+router.get('/apartments/category/:apartmentType' , apartmentCtrl.getApartmentsByCategory);
+router.post('/apartments' ,multipartMiddleware, apartmentCtrl.createApartment);
 router.put('/apartments/:apartmentId' , apartmentCtrl.updateApartment);
 router.delete('/apartments/:apartmentId' , apartmentCtrl.deleteApartment);
 

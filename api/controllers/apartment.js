@@ -19,7 +19,7 @@ const getAllApartments = (req, res) => {
       res.status(400).json({
         message: 'Bad Request',
       });
-    } else if (!apartments) {
+    } else if (apartments && apartments.length <=0) {
       res.status(404).json({
         message: 'Not Found',
       });
@@ -54,6 +54,33 @@ const getSingleApartment = (req, res) => {
       });
     }
   });
+};
+
+const getApartmentsByCategory =(req, res) =>{
+  const apartmentType = req.params.apartmentType.toLowerCase();
+  if (!apartmentType) {
+    res.status(404).json({
+      message: 'Apartment type is required',
+    });
+    return;
+  }
+  Apartment
+    .find({apartmentType : new RegExp(apartmentType , 'i' )})
+    .exec((err, apartment)=>{
+      if (err) {
+        res.status(400).json({
+          message: 'Bad Request',
+        });
+      } else if (apartment.length<=0) {
+        res.status(404).json({
+          message: `No apartments of this ${apartmentType}.`,
+        });
+      } else {
+        res.status(200).json({
+          data: apartment,
+        });
+      }
+    })
 };
 
 const createApartment = (req, res) => {
@@ -202,6 +229,7 @@ const deleteApartment = (req, res) => {
 module.exports = {
   getAllApartments,
   getSingleApartment,
+  getApartmentsByCategory,
   createApartment,
   updateApartment,
   deleteApartment,

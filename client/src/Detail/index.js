@@ -11,7 +11,8 @@ class Detail extends Component {
   constructor(props){
     super(props);
     this.state={
-      updated : false
+      updated : false,
+      showMessage : false
     }
   }
   componentDidMount() {
@@ -21,23 +22,34 @@ class Detail extends Component {
   submitComment=(data)=>{
     const id = this.props.match.params.apartmentId;
     this.props.addComment(id, data);
+    this.setState({
+      showMessage : false
+    })
   }
   componentWillReceiveProps(newProps){
     const { commentSuccess } = newProps.detail;
-    if(commentSuccess!==this.props.commentSuccess && commentSuccess === true){
+    if(commentSuccess!==this.props.detail.commentSuccess && commentSuccess === true){
       this.setState({
-        updated : true
-      })
+        updated : true,
+        showMessage:true
+      });
     }
   }
 
   render() {
-    const {apartment, comment , commentError,commentSuccess} = this.props.detail;
+    const {apartment, comment , commentError} = this.props.detail;
+    console.log(this.props.detail.commentSuccess);
     return (
       <div>
         <DetailHeader/>
         <div className={"container-fluid detail-container-fluid"}>
           <div className={"detail-wrapper"}>
+            {this.state.showMessage ?
+              (
+                <div className="feedBack-success">
+                  <strong>Success!!!</strong> Thank You For Your Feedback.
+                </div>
+              ) : null }
             <EachApartment singleApartment={apartment}/>
             <p>{commentError ? 'error' : null}</p>
             <AddComment onSubmit={this.submitComment} comment={comment} commentError={commentError} />

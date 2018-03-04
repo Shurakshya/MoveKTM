@@ -26,13 +26,13 @@
 
 .header-row p:nth-child(1){
     font-size:400%;
-    font-family:Arial Black;
+    font-family:Arial Black, sans-serif;
     font-weight:900;
     line-height:1;
 }
 
 .header-row p:nth-child(2){
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     font-size:200%;
     font-weight:400;
 }
@@ -41,7 +41,7 @@
     background-color:#ED6F1A;
     width: 350px;
     font-size: 120%;
-    font-family: Book Antiqua;
+    font-family: Book Antiqua, sans-serif;
     line-height: 2;
     border : 0;
     border-radius: 0;
@@ -92,10 +92,17 @@
 .type-categories{
     margin :10px 15px 30px -20px;
 }
-.type-categories p , .col-sm-6 p{
+
+.type-categories a>p , .col-sm-6 p{
     padding-top: 20px;
     font-size: 20px;
     margin: 0 auto;
+    color : #151414;
+}
+
+.type-categories a:hover ,a:hover>p {
+    text-decoration: none;
+    color: #ED6F1A;
 }
 
 .img-wrap{
@@ -146,25 +153,25 @@
 }
 
 /*ApartmentList starts here*/
-.apartment_list_popular{
+.apartment_list_popular {
     background-image: url("http://designingmedia.com/muse/RealEstate/images/sales_bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    margin : 0 auto;
+    background-size: cover;
+    margin: 0 auto;
     padding: 20px 0 50px 0;
     z-index: 2;
-    position :relative;
+    position: relative;
     text-align: center;
     color: #fff;
     font-weight: 400;
-    font-family: Arial Black;
+    font-family: Arial Black, sans-serif;
 }
 .apartment_block{
     width : 94%;
     color: #151414;
-    margin-right: 3%;
-    margin-left: 3%;
+    margin: 20px 3%;
 }
 
 .apartment_block_each{
@@ -243,10 +250,112 @@
     margin : 0 auto;
     padding: 0;
     position : relative;
-    z-index: 2;
+    z-index: 4;
     height : 400px;
     background-color: #fff;
 }
+/*contact me section here*/
+.contact{
+    width: 100%;
+    background-color: #ECF0F1;
+    padding-bottom: 15px;
+}
+
+.contact > h1{
+    padding-left: 15px;
+}
+
+.contact-row{
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.contact-row >.col-sm-6 > .well> h3{
+    margin-top: 10px;
+    font-size: 2em;
+    font-weight: 400;
+    color:#B40808 ;
+    text-align: center;
+}
+
+.contact-row >.col-sm-6 > .well{
+    margin-top: 32px;
+    font-size: 1.2em;
+    /*color: #99a5a2;*/
+    color: rgba(0,0,0,0.6);
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+
+}
+.contact-row >.col-sm-6 > .well >.sm_head{
+    color:#1575de;
+    font-weight: 500;
+}
+#map{ /* view on google map*/
+    color: rgb(227,67,59);
+}
+
+/*contact form starts here*/
+/* ######## */
+/*materaial design*/
+
+input::-webkit-input-placeholder, button {
+    font-family: 'roboto', sans-serif;
+    font-size: 18px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+input {
+    margin: 40px 25px;
+    width: 80%;
+    display: block;
+    border: none;
+    padding: 15px 0;
+    border-bottom: solid 1px #99a5a2;
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, rgb(227,67,59) 4%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, rgb(227,67,59) 4%);
+    background-position: -200px 0;
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    color: #0e6252;
+}
+input:focus, input:valid {
+    border-bottom: solid 1px rgb(227,67,59);
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+}
+input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+    color: rgb(227,67,59);
+    font-size: 14px;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+    visibility: visible !important;
+}
+
+.contact-row>div>form>button {
+    border: none;
+    background: #1587de;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 12px;
+    width: 80%;
+    color: white;
+    margin: 25px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.contact-row>div>form>button:hover {
+    -webkit-transform: translateY(+8px);
+    -ms-transform: translateY(+8px);
+    transform: translateY(+8px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+
 
 @media only screen and (max-width: 760px) {
     .categories-list-row .col-sm-5 {

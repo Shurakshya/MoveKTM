@@ -44,6 +44,7 @@ const EachApartment = ({singleApartment}) => {
           <Comment apartmentProps={singleApartment}/>
         ) : <div> No Reviews.</div>
       }
+
     </div>
   )
 

@@ -1,28 +1,18 @@
-import React , { Component } from 'react';
-import { connect } from 'react-redux';
-import  {fetchApartments} from '../Home/action';
-import '../Home/home.css';
-import './all.css';
-import DetailHeader from '../Detail/components/DetailHeader';
-import price from '../images/shape2.png';
+import React , {Component} from 'react';
 
-class AllApartments extends Component{
-  componentWillMount(){
-    this.props.fetchApartments();
-  }
+class ApartmentByCategory extends Component{
 
   redirectToPage=(id)=>{
     this.props.history.push(`/apartments/${id}`);
   }
-
   renderApartments=()=>{
-    const { apartments } = this.props.home;
-    if(!apartments){
+    const { apartmentLists, price } = this.props;
+    if(!apartmentLists){
       return (
         <div>Loading...</div>
       )
     }
-    return apartments.map(each=>{
+    return apartmentLists.map(each=>{
       return(
         <div className={"col-sm-3"} key={each._id} >
           <div className="apartment_block_each">
@@ -45,23 +35,15 @@ class AllApartments extends Component{
   }
   render(){
     return(
-      <div>
-        <DetailHeader/>
-        {/*<div className={"allapartments-row"}>*/}
-          <div className={"apartment_list_popular"}>
-          <br />
-          <div className={"row apartment_block"}>
-            {this.renderApartments()}
-          </div>
+      <div className={"apartment_list_popular"}>
+        <br />
+        <div className={"row apartment_block"}>
+          {this.renderApartments()}
         </div>
+
       </div>
     )
   }
 }
 
-const mapStateToProps=({ home })=>{
-  return{
-    home
-  }
-}
-export default connect(mapStateToProps , { fetchApartments })(AllApartments);
+export default ApartmentByCategory;

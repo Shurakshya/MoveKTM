@@ -12,12 +12,18 @@ export function loginUser(values){
           payload : response.data.token
         })
       }).catch((err)=>{
-        console.log("login action error" , err.response.data.message)
         // const { message } = err.response.data;
-        dispatch({
-          type: LOGIN_USER_ERROR,
-          payload : err.response.data.message
-        })
+        if(err.response) {
+          dispatch({
+            type: LOGIN_USER_ERROR,
+            payload: err.response.data.message
+          })
+        }else{
+          dispatch({
+            type: LOGIN_USER_ERROR,
+            payload: 'Sorry, Server Down!!!'//err.response.data.message
+          })
+        }
       })
   }
 }

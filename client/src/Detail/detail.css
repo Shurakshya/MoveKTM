@@ -12,7 +12,7 @@
     background-position: center center;
     width:100%;
     margin: 0 auto;
-    height: 350px;
+    height: 300px;
     position : relative;
 }
 ul.breadcrumb{
@@ -110,6 +110,14 @@ hr{
     background-color: white;
     width: 60%;
 }
+
+.comment-well p>a{
+    font-size: 20px;
+    color: #ED6F1A;
+}
+.comment-well p>a:hover{
+    color: rgba(25,184,223,0.9);
+}
 .heading-row {
     width: 60%;
     text-align: left;
@@ -170,6 +178,46 @@ hr{
     background-color: #ED6F1A;
     color: white;
     border: 1px solid #DDD;
+}
+.detail-container-fluid .feedBack-success{
+    position : fixed;
+    z-index : 100;
+    top : 120px;
+    left : 35%;
+    font-size: 16px;
+    color: #31708f;
+    background-color: #d9edf7;
+    border: 1px solid #bce8f1;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    -moz-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 2s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+        padding: 0;
+        border : 0;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+        padding: 0;
+        border : 0;
+    }
 }
 
 @media only screen and (max-width: 767px) {

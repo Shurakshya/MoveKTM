@@ -38,7 +38,7 @@ const apartmentSchema = new mongoose.Schema({
 	  type : Array,
   },
 	price: Number,
-	apartmentType: {
+	apartmentType: { //shared,studio,family,friends
 		type: String,
 		required:true
 	},

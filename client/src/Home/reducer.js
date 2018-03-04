@@ -11,12 +11,12 @@ export const homeReducer = (state=initialState,action)=>{
       return{
         ...state,
         apartments: action.payload
-      }
+      };
     case FETCH_APARTMENTS_ERROR:
       return{
         ...state,
         fetchApartmentsError : action.payload
-      }
+      };
     default :
       return state;
   }

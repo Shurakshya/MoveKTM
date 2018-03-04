@@ -3,7 +3,7 @@ import FormData from 'form-data';
 import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
 
-class AddAparmentForm extends Component {
+class AddApartmentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -216,4 +216,4 @@ class AddAparmentForm extends Component {
   }
 }
 
-export default withRouter(AddAparmentForm);
+export default withRouter(AddApartmentForm);
