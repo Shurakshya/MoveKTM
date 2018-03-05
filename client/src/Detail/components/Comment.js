@@ -7,14 +7,12 @@ class Comment extends Component {
       isOpen: false,
     }
   }
-
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
 
-  };
-
+  }
   renderedAllComments = () => {
     const {apartmentProps} = this.props;
     if (this.state.isOpen) {
@@ -22,8 +20,7 @@ class Comment extends Component {
     } else {
       return apartmentProps.comments.slice(0, 4);
     }
-  };
-
+  }
   render() {
     const {apartmentProps} = this.props;
     return (
@@ -61,6 +58,5 @@ class Comment extends Component {
     )
   }
 }
-
 export default Comment;
 

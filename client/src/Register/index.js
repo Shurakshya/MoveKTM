@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
 import Form from './components/Form';
 import './registerStyle.css';
 import { registerUser } from './action';
@@ -11,12 +12,10 @@ class Register extends Component{
       this.props.history.push('/login');
     }
   }
-
   submitRegister=(data)=>{
     /* action dispatch */
     this.props.registerUser(data);
   }
-
   render(){
     const {registerError} = this.props.register;
     return(
@@ -28,11 +27,9 @@ class Register extends Component{
     )
   }
 }
-
 const mapStateToProps=({register})=>{
   return{
     register
   }
 }
-
 export default connect(mapStateToProps, { registerUser })(Register);

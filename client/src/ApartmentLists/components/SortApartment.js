@@ -8,7 +8,5 @@ const SortApartment =() =>{
       </div>
     </div>
   )
-
-};
-
+}
 export default SortApartment;

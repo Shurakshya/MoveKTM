@@ -1,11 +1,11 @@
 import React from 'react';
-import './navigation.css';
 import {Link} from 'react-router-dom';
 import {upperCase} from 'lodash';
 
+import './navigation.css';
+
 const Navigation = (props) => {
-  console.log(props.userData);
-  const {firstname,lastname,email} = props.userData;
+  const {firstname} = props.userData;
   const profile= firstname ? "MY PROFILE" : "LOGIN";
   return (
     <div className={'navigation'}>
@@ -71,8 +71,6 @@ const Navigation = (props) => {
                         </li>
                     ])
                 }
-
-
               </ul>
             </li>
           </ul>
@@ -80,6 +78,5 @@ const Navigation = (props) => {
       </nav>
     </div>
   );
-};
-
+}
 export default Navigation;

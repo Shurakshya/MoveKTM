@@ -1,12 +1,13 @@
 import React , {Component} from 'react';
 
-class ApartmentByCategory extends Component{
+import ApartmentDiv from '../../Common/ApartmentDiv';
 
-  redirectToPage=(id)=>{
-    this.props.history.push(`/apartments/${id}`);
+class ApartmentByCategory extends Component{
+  constructor(props){
+    super(props);
   }
   renderApartments=()=>{
-    const { apartmentLists, price } = this.props;
+    const { apartmentLists } = this.props;
     if(!apartmentLists){
       return (
         <div>Loading...</div>
@@ -14,22 +15,16 @@ class ApartmentByCategory extends Component{
     }
     return apartmentLists.map(each=>{
       return(
-        <div className={"col-sm-3"} key={each._id} >
-          <div className="apartment_block_each">
-            <img className={"apartment_image"} src={each.image} />
-            <div className={"price-show"}>
-              <img src={price} />
-              <p>€ {each.price}</p>
-            </div>
-          </div>
-          <div className={"apartment_detail"}>
-            <h4>{each.name}</h4>
-            <h6>{each.address}</h6>
-            <p>{each.apartmentType}</p>
-            <button type="button" className="btn-lg visit-button" onClick={()=>this.redirectToPage(each._id)}>
-              View Detail</button>
-          </div>
-        </div>
+        <ApartmentDiv
+          key={each._id}
+          className={"col-sm-3"}
+          image={each.image}
+          price={each.price}
+          name={each.name}
+          address={each.address}
+          apartmentType={each.apartmentType}
+          id={each._id}
+        />
       )
     })
   }
@@ -40,10 +35,8 @@ class ApartmentByCategory extends Component{
         <div className={"row apartment_block"}>
           {this.renderApartments()}
         </div>
-
       </div>
     )
   }
 }
-
 export default ApartmentByCategory;

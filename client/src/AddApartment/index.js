@@ -1,17 +1,12 @@
 import React, { Component} from 'react';
 import {connect} from 'react-redux';
-import { addApartment } from "./action";
 
+import { addApartment } from "./action";
 import './addApartment.css'
 import  Form from "./components/Form";
 
 class AddApartment extends Component{
-  componentWillReceiveProps(){
-
-  }
-
   submitApartmentData=(data)=>{
-    console.log("action dispatchinf from add apratment" , data );
     this.props.addApartment(data);
   }
   render(){
@@ -25,11 +20,4 @@ class AddApartment extends Component{
     )
   }
 }
-
-const mapStateToProps=(state)=>{
-  return{
-
-  }
-}
-
 export default connect(null, { addApartment })(AddApartment);

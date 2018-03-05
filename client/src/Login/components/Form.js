@@ -8,20 +8,17 @@ class LoginForm extends Component {
       error: {},
     };
   }
-
   submitLoginData = (e) => {
     e.preventDefault();
     const data = {
       email: this.email.value,
       password: this.password.value,
     };
-    // this.props.onSubmit(data);
     /* validate form */
     this.validateForm(data);
     console.log('error message from login form ', this.state.error);
     _.size(this.state.error) <= 0 ? this.props.onSubmit(data) : null;
-  };
-
+  }
   validateForm = (data) => {
     const { email, password } = data;
     const error = {};
@@ -34,8 +31,7 @@ class LoginForm extends Component {
     this.setState({
       error
     });
-  };
-
+  }
   render() {
     const { error } = this.props;
     return (
@@ -82,5 +78,4 @@ class LoginForm extends Component {
     );
   }
 }
-
 export default LoginForm;

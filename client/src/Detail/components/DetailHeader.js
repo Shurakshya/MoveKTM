@@ -13,7 +13,5 @@ const DetailHeader =(props)=>{
       </ul>
     </div>
   )
-
 }
-
 export default DetailHeader;

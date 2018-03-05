@@ -3,11 +3,7 @@ import React, {Component} from 'react';
 class AddComment extends Component {
   constructor(props){
     super(props);
-    this.state={
-
-    }
   }
-
   submitCommentData=(e)=>{
     e.preventDefault();
     const name = localStorage.getItem('name');
@@ -23,10 +19,8 @@ class AddComment extends Component {
     }else{
       this.props.onSubmit(data);
     }
-  };
-
+  }
   render(){
-    console.log("props df add commnr" , this.props);
     return (
       <div className={"form-container"}>
         <h1>Leave A Comment</h1>
@@ -46,5 +40,4 @@ class AddComment extends Component {
     )
   }
 }
-
 export default AddComment;

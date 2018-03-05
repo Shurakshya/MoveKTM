@@ -167,8 +167,8 @@ hr{
 }
 .form-container textarea{
     border-radius: 0;
-    background-color: transparent;
-    border : 1px solid #DDD;
+    background-color: #f4f5f2;
+    border : 1px solid #94948d;
 }
 .form-container .btn-default {
     line-height: 1.5em;

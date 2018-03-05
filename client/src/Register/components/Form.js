@@ -8,7 +8,6 @@ class RegisterForm extends Component {
       error: {},
     };
   }
-
   submitRegisterData = (e) => {
     e.preventDefault();
     const data = {
@@ -25,8 +24,7 @@ class RegisterForm extends Component {
     this.validateForm(data);
     console.log("error message fro",this.state.error);
     _.size(this.state.error) <= 0 ? this.props.onSubmit(data) : null;
-  };
-
+  }
   validateForm = (data) => {
     const { firstname, lastname, password, email, phone, streetAddress, city, country } = data;
     const error = {};
@@ -57,8 +55,7 @@ class RegisterForm extends Component {
     this.setState({
       error,
     });
-  };
-
+  }
   render() {
     const {error} = this.props;
     return (
@@ -181,5 +178,4 @@ class RegisterForm extends Component {
     );
   }
 }
-
 export default RegisterForm;

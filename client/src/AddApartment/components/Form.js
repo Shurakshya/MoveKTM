@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormData from 'form-data';
 import {withRouter} from 'react-router-dom';
+
 import _ from 'lodash';
 
 class AddApartmentForm extends Component {
@@ -22,12 +23,10 @@ class AddApartmentForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-  };
-
+  }
   sendApartmentData = e => {
     e.preventDefault();
     let form = new FormData();
-    // const imagedata = this.image.files[0];
     const imagedata = document.querySelector('input[type="file"]').files[0];
     form.append('name', this.state.name);
     form.append('address', this.state.address);
@@ -57,7 +56,7 @@ class AddApartmentForm extends Component {
     this.image.value = "";
     this.props.history.push('/');
 
-  };
+  }
   validateForm=(data)=>{
     const {name, address, apartmentType, price, detail , facility, specialFeatures, constructionYear} = this.state;
     if(!(name || address ||apartmentType || price ||detail || facility|| specialFeatures || constructionYear)){
@@ -66,7 +65,6 @@ class AddApartmentForm extends Component {
       })
     }
   }
-
   render() {
     return (
       <div className="container add_apartment_form">
@@ -215,5 +213,4 @@ class AddApartmentForm extends Component {
     );
   }
 }
-
 export default withRouter(AddApartmentForm);

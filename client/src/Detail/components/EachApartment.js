@@ -2,13 +2,11 @@ import React from 'react';
 import Comment from './Comment';
 
 const EachApartment = ({singleApartment}) => {
-  // const noOfResponse = singleApartment.comments.length >0 ? singleApartment.comments.length : 0 ;
   if (!singleApartment.name) {
     return <p>...loading</p>
   }
   return (
     <div>
-      {/*<div className={"wrapper"}>*/}
       <div className={"row image-row"}>
         <img src={singleApartment.image}/>
       </div>
@@ -34,7 +32,6 @@ const EachApartment = ({singleApartment}) => {
           <hr/>
         </div>
       </div>
-      {/*</div>*/}
       <div className="heading-row">
         <h1>Reviews</h1>
       </div>
@@ -44,10 +41,7 @@ const EachApartment = ({singleApartment}) => {
           <Comment apartmentProps={singleApartment}/>
         ) : <div> No Reviews.</div>
       }
-
     </div>
   )
-
 }
-
 export default EachApartment;

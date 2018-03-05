@@ -1,32 +1,40 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import  {fetchApartments} from './action';
+
+import  { fetchApartments } from './action';
 import './home.css';
-import img1 from '../images/prop_icon1.png';
-import img2 from '../images/prop_icon2.png';
-import img3 from '../images/prop_icon3.png';
-import img4 from '../images/prop_icon4.png';
-import price from '../images/shape2.png';
-
-
 import Header from './components/Header';
-import ApartmentList from './components/ApartmentList';
+import PopularApartment from './components/PopularApartment';
 import Categories from "./components/Categories";
 import Footer from "./components/footer";
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      showErrorMessage : false
+    }
+  }
   componentDidMount(){
     /* dispatch action */
     this.props.fetchApartments();
   }
-
+  displayError=()=>{
+    alert("empty search!!!");
+  }
   render() {
     const { apartments } = this.props.home;
     return (
       <div>
+        {this.state.showErrorMessage ?
+          (
+            <div className="feedBack-success">
+              <strong>Success!!!</strong> Thank You For Your Feedback.
+            </div>
+          ) : null }
         <Header />
-        <Categories img1={img1} img2={img2} img3={img3} img4={img4} />
-        <ApartmentList apartmentList={ apartments } price={price}/>
+        <Categories sendError={this.displayError} />
+        <PopularApartment apartmentList={ apartments }/>
         <Footer/>
       </div>
     );
@@ -37,5 +45,4 @@ const mapStateToProps =(state) =>{
     home : state.home
   }
 }
-
 export default connect(mapStateToProps,{ fetchApartments })(App);
